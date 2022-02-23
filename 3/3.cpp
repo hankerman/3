@@ -19,43 +19,43 @@ int main()
     const int size = 10;
     float arr[size], sumotr = 0, min = arr[0], max = arr[0],  pros = 1, pros2 = 1, sum = 0;
     int minpos = 0, maxpos = 0, ot1 = 0, ot2 = 0;
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {    //инициализация массива
         arr[i] = 0.5 + rand() % 20 - 10; //имитация вещественных чисел
     }
     //for (int i = 0; i < size; i++) cout << arr[i] << " ";  //вывод масива для проверки
 
-    for (int i = 0; i < size; i++) {
-        if (arr[i] < 0) {
+    for (int i = 0; i < size; i++) { 
+        if (arr[i] < 0) {         //сумма отрицательных чисел
             sumotr += arr[i];
         }
-        if (arr[i] < min) {
+        if (arr[i] < min) {  //поиск минимального числа и его позиции
             min = arr[i];
             minpos = i;
         }
-        if (arr[i] > max) {
+        if (arr[i] > max) {    //поиск максимального числа и его позиции
             max = arr[i];
             maxpos = i;
         }
-        if (i % 2 == 0) {
+        if (i % 2 == 0) {     //произведения с четными номерами
             pros *= arr[i];
         }
     }
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++) {    //поиск первого отрицательного числа
         if (arr[i] < 0) {
             ot1 = i;
             break;
         }
     }
-    for (int i = size - 1; i > 0; i--) {
+    for (int i = size - 1; i > 0; i--) {   //поиск второго отрицательного числа
         if (arr[i] < 0) {
             ot2 = i;
             break;
         }
     }
-    for (int i = minpos; i <= maxpos; i++) {
+    for (int i = minpos; i <= maxpos; i++) {   //произведение между минимальным и максимальным числом
         pros2 *= arr[i];
     }
-    for (int i = ot1; i <= ot2; i++) {
+    for (int i = ot1; i <= ot2; i++) {      //сумма между первым и последним отрицательным
         sum += arr[i];
     }
     cout << endl;
